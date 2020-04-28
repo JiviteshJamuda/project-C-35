@@ -1,8 +1,31 @@
 <!DOCTYPE html><html><head>
+    <title>A Survey to Bring About - project C-35</title>
     <script src="p5.js"></script>
     <script src="p5.dom.min.js"></script>
     <script src="p5.sound.min.js"></script>
-<script src="./p5.play.js"></script>
+    <script src="./p5.play.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDow0U17JtGi2ZCYV4hSvtgkrUZ_wwHTi4",
+    authDomain: "survey-1a8bd.firebaseapp.com",
+    databaseURL: "https://survey-1a8bd.firebaseio.com",
+    projectId: "survey-1a8bd",
+    storageBucket: "survey-1a8bd.appspot.com",
+    messagingSenderId: "908981568995",
+    appId: "1:908981568995:web:2a954f56fb95b4f0b10cd6"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
 
