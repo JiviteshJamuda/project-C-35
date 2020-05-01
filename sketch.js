@@ -1,8 +1,8 @@
-var DB, greeting, nameBar, emailIDBar, startButton;
+var DB, greeting, nameBar, emailIDBar, startButton, endButton;
 var voterRef, voterCountRef;
 var voterCount=0, name = null, emailID = null, vote = null;
 var name, emailID, arr = [];
-var gameState = "formPage";
+var gameState = 1;
 
 function updateCount(count){
   DB.ref('/').update({
@@ -12,10 +12,7 @@ function updateCount(count){
 
 function setup() {
   DB = firebase.database();
-  createCanvas(500,500);
-
-  arr.push("yes");
-  vote = arr;
+  createCanvas(510,500);
 
   greeting = createElement('h1',"Welcome to my survey");
   greeting.position(width/2+175,100);
@@ -34,29 +31,11 @@ function setup() {
     emailIDBar.hide();
     startButton.hide();
 
-
+    Question1();
+    gameState = 2;
   })
   
-  if (gameState === "endPage"){
-    endButton = createButton("End the survey");
-    endButton.position(505,450);
-
-    endButton.mousePressed(()=>{
-      name = nameBar.value();
-      emailID = emailIDBar.value();
-  
-      voterCount+=1;
-      updateCount(voterCount);
-  
-      voterRef = "voters/voter" + voterCount;
-      DB.ref(voterRef).set({
-        name:name,
-        emailID:emailID,
-        vote:vote
-      });
-    });  
-  }
-  
+    
 }
 
 function draw() {
@@ -65,5 +44,5 @@ function draw() {
   voterCountRef.on("value",(data)=>{
     voterCount = data.val();
   });
-  console.log(voterCount);
+  vote = arr;
 }
